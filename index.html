@@ -1,0 +1,35 @@
+<html>
+  <body>
+    <form>
+      <h1>What do you already have?</h1>
+      <div>Black Stones: <input type="number" data-bind="value: blackstones" min="0"></div>
+      
+      <h1>What does the market look like?</h1>
+      <div>
+        Black Stones: <input type="number" min="0" data-bind="value: blackstonesPrice"/>
+      </div>
+
+      <h1>What do you want to enhance?</h1>
+      <div>
+        <select data-bind="value: enhanceType">
+          <option value="weapon">Weapon</option>
+          <option value="armor">Armor</option>
+        </select>
+      </div>
+      <div>Enhance Chance (Failstacks): <input type="number" min="0" data-bind="value: failstacks"/></div>
+      <div>Currently at enhancement level <input type="number" min="0" max="19" data-bind="value: currentLevel"/></div>
+      <div>Want to get to enhancement level <input type="number" min="1" max="20" data-bind="value: desiredLevel"/></div>
+    </form>
+    <hr/>
+
+    <div>
+      You will need to buy
+      <strong data-bind="text: numStonesToBuy"></strong>
+      <span data-bind="text: enhanceType"></span>
+      blackstones for a total cost of <strong data-bind="text: totalCost().toLocaleString()"></strong> silver.
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js"></script>
+    <script src="fs.js"></script>
+  </body>
+</html>
